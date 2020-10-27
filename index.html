@@ -1,0 +1,170 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Crafting</title>
+        <link rel="stylesheet" href="/index.css">
+        <script defer src='/data.js'></script>
+        <script defer src='/createItem.js'></script>
+        <script defer src='/loadInventory.js'></script>
+        <script defer src='/Equipment.js'></script>
+        <script defer src='/Trash.js'></script>
+        <script defer src='/random.js'></script>
+    </head>
+    <body>
+
+        <span class='section'>
+            <h1>Player</h1>
+            <ul>
+                <li>Level: </li>
+                <li>Health: </li>
+                <li>Armor: </li>
+                <li>Speed: </li>
+                <li>Critical: </li>
+                <li>Energy: </li>
+                <li>Mana: </li>
+                <li>Inventory Size: </li>
+            </ul>
+            <h2>Equipment</h2>
+                <ul>
+                    <li id='leftHandDisp'>Left Hand: None</li>
+                    <li id='leftArmDisp'>Left Arm: None</li>
+                    <li id='finger1Disp'>Finger (1): None</li>
+                    <li id='finger2Disp'>Finger (2): None</li>
+                    <li id='finger3Disp'>Finger (3): None</li>
+                    <li id='finger4Disp'>Finger (4): None</li>
+                    <li id='finger5Disp'>Finger (5): None</li>
+                    <br>
+                    <li id='rightHandDisp'>Right Hand: None</li>
+                    <li id='rightArmDisp'>Right Arm: None</li>
+                    <li id='finger6Disp'>Finger (6): None</li>
+                    <li id='finger7Disp'>Finger (7): None</li>
+                    <li id='finger8Disp'>Finger (8): None</li>
+                    <li id='finger9Disp'>Finger (9): None</li>
+                    <li id='finger10Disp'>Finger (10): None</li>
+                    <br>
+                    <li id='headDisp'>Head: None</li>
+                    <li id='chestDisp'>Chest: None</li>
+                    <li id='backDisp'>Back: None</li>
+                    <br>
+                    <li id='leftFootDisp'>Left Foot: None</li>
+                    <li id='rightFootDisp'>Right Foot: None</li>
+                    <br>
+                    <li id='leftLegDisp'>Left Leg: None</li>
+                    <li id='rightLegDisp'>Right Leg: None</li>
+                </ul>
+            </span>
+                  
+        <span class='section'>
+            <h1>Inventory</h1>
+            <div id='inventoryList'>
+                <p>No items here...</p>
+            </div>
+
+            <ul>
+                <li>10% chance of <strong>Apples</strong></li>
+                <li>20% chance of <strong>Oranges</strong></li>
+                <li>70% chance of <strong>Bananas</strong></li>
+            </ul>
+            
+            <button id="choose">Choose</button>
+            <div id="choice" class="choice">... awaiting click ...</div>
+
+        </span>
+
+        <span class='section'>
+            <div class='actionListItem'>
+                <button class='majorButton' id='grassButton' onclick="forage()">Forage</button>
+            </div>
+
+            <div class='actionListItem'>
+                <button class='majorButton' id='grassButton' onclick="excavate()">Excavate</button>
+            </div>
+
+            <div class='actionListItem'>
+                <button class='majorButton' id='grassButton' onclick="hunt()">Hunt</button>
+            </div>
+            <h1>Collect</h1>
+            <h2>Resources</h2>
+
+            <div class='actionListItem'>
+                <span class='icon, grassIcon' id=''></span>
+                <button class='majorButton' id='grassButton' onclick="createItem('grass')">Collect Grass</button>
+            </div>
+
+            <div class='actionListItem'>
+                <span class='icon, leafIcon' id=''></span>
+                <button class='majorButton' id='leafButton' onclick="createItem('leaf')">Collect Leaves</button>
+            </div>
+
+            <div class='actionListItem'>
+                <span class='icon, stickIcon' id=''></span>
+                <button class='majorButton' id='stickButton' onclick="createItem('stick')">Collect Stick</button>
+            </div>
+
+            <div class='actionListItem'>
+                <span class='icon, dirtIcon' id=''></span>
+                <button class='majorButton' id='dirtButton' onclick="createItem('dirt')">Collect Dirt</button>
+            </div>
+
+            <div class='actionListItem'>
+                <span class='icon, rockIcon' id=''></span>
+                <button class='majorButton' id='rockButton' onclick="createItem('rock')">Collect Rock</button>
+            </div>
+
+            <br>
+
+            <div class='actionListItem'>
+                <span class='icon, featherIcon' id=''></span>
+                <button class='majorButton' id='featherButton' onclick="createItem('feather')">Kill Chicken</button>
+            </div>
+
+            <h2>Materials</h2>
+            <div class='actionListItem'>
+                <span class='icon, ropeIcon' id=''></span>
+                <button class='majorButton' class='majorButton' id='ropeButton' onclick="createItem('rope')">Craft Rope</button>
+            </div>
+
+            <div class='actionListItem'>
+                <span class='icon, arrowheadIcon' id=''></span>
+                <button class='majorButton' id='arrowheadButton' onclick="createItem('arrowhead')">Craft Arrowhead</button>
+            </div>
+
+            <h2>Tools</h2>
+            <div class='actionListItem'>
+                <span class='icon, stakeIcon' id=''></span>
+                <button class='majorButton' id='stakeButton' onclick="createItem('stake')">Craft Wooden Stake</button>
+            </div>
+
+            <div class='actionListItem'>
+                <span class='icon, arrowIcon' id=''></span>
+                <button class='majorButton' id='arrowButton' onclick="createItem('arrow')">Craft Arrow</button>
+            </div>
+
+            <div class='actionListItem'>
+                <span class='icon, spearIcon' id=''></span>
+                <button class='majorButton' id='spearButton' onclick="createItem('spear')">Craft Spear</button>
+            </div>
+
+            <div class='actionListItem'>
+                <span class='icon, axeIcon' id=''></span>
+                <button class='majorButton' id='axeButton' onclick="createItem('axe')">Craft Axe</button>
+            </div>
+
+            <div class='actionListItem'>
+                <span class='icon, swordIcon' id=''></span>
+                <button class='majorButton' id='swordButton' onclick="createItem('sword')">Craft Sword</button>
+            </div>
+        </span>
+          
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+        
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="close">&times;</div>
+            <div id='optionList'></div>
+        </div>
+        
+        </div>
+    </body>
+</html>
